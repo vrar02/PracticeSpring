@@ -35,6 +35,13 @@
             </map>
         </property>
 
+        <property name="properties">
+            <props>
+                <prop key="database">com.mysql.driver.java</prop>
+                <prop key="username">root</prop>
+                <prop key="password">vivek</prop>
+            </props>
+        </property>
 
     </bean>
 

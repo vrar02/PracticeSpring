@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean name="employee1" class="com.springcore.collections.Employee">
+
+        <property name="name" value="Radhe"/>
+        <property name="phones">
+            <list>
+                <value>878092323</value>
+                <value>123454654</value>
+                <value>456789012</value>
+            </list>
+        </property>
+
+        <property name="address">
+            <set>
+                <value>delhi</value>
+                <value>Lucknow</value>
+                <value>Hyderabad</value>
+            </set>
+        </property>
+
+        <property name="courses">
+            <map>
+                <entry key="english" value="mon-tues"/>
+                <entry key="telugu" value="tues-frida"/>
+                <entry key="python" value="mon-tues-thurs"/>
+            </map>
+        </property>
+
+
+    </bean>
+
+</beans>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    We can directly use constructor schema c:certificateName..to inject as constructor arg-->
+    <bean name="certificate1" class="com.springcore.constructorInjection.Certificate" c:certificateName="cer1"/>
+
+    <bean name="certificate2" class="com.springcore.constructorInjection.Certificate">
+        <constructor-arg value="cer2"/>
+    </bean>
+
+<!--    The order of constructor arg tags need to be maintained...to avoid ambuiguity or else use name tag-->
+    <bean name="person1" class="com.springcore.constructorInjection.Person">
+        <constructor-arg value="vivek"/>
+        <constructor-arg value="123"/>
+        <constructor-arg  name="certificate" ref="certificate1"/>
+        <constructor-arg>
+            <list>
+                <value>sai</value>
+                <value>shashank</value>
+                <value>ravi</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+<!--    By default string constructor will be called...in order to call int constructor need to pass type-->
+<!--    and index to maintain the order.-->
+    <bean name="add" class="com.springcore.constructorInjection.Addition">
+        <constructor-arg value="12" type="int" index="1"/>
+        <constructor-arg value="22" type="int" index="0"/>
+    </bean>
+
+</beans>

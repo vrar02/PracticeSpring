@@ -32,9 +32,17 @@
 
 <!--    By default string constructor will be called...in order to call int constructor need to pass type-->
 <!--    and index to maintain the order.-->
-    <bean name="add" class="com.springcore.constructorInjection.Addition">
-        <constructor-arg value="12" type="int" index="1"/>
-        <constructor-arg value="22" type="int" index="0"/>
+<!--    <bean name="add" class="com.springcore.constructorInjection.Addition">-->
+<!--        <constructor-arg value="12" type="int" index="1"/>-->
+<!--        <constructor-arg value="22" type="int" index="0"/>-->
+<!--    </bean>-->
+
+<!--If type is not specified and string constructor is not present...-->
+<!--    it will use which ever constructor matcher first-->
+<!--    Here it uses the double constructor..-->
+    <bean name="add2" class="com.springcore.constructorInjection.Addition">
+        <constructor-arg value="12" />
+        <constructor-arg value="22" />
     </bean>
 
 </beans>

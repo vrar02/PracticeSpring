@@ -11,7 +11,7 @@ public class Test {
         Person person1 = (Person)applicationContext.getBean("person1");
         System.out.println(person1);
 
-        Addition addition=(Addition) applicationContext.getBean("add");
+        Addition addition=(Addition) applicationContext.getBean("add2");
         addition.doSum();
     }
 }

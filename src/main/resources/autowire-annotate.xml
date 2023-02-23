@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    This tag is used to enable annotation configuration-->
+    <context:annotation-config/>
+
+    <bean class="com.springcore.autowire.annotate.Address"  name="xyz">
+        <property name="city" value="Hyderabad"/>
+        <property name="state" value="Telangana2"/>
+    </bean>
+
+
+<!--    If we have two beans comp an comp2 then using @Autowired will through exception-->
+    <bean class="com.springcore.autowire.annotate.Company" name="comp" p:name="amazon"/>
+
+    <bean class="com.springcore.autowire.annotate.Company" name="comp2" p:name="microsoft"/>
+
+
+    <bean class="com.springcore.autowire.annotate.Employee" name="employee" p:name="vivek"/>
+
+</beans>

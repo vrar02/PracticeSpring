@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    changing the bean name to "address2" will not inject when using autowire==byName-->
+<!--    It will inject using byType and there should not be two beans of same type Address-->
+    <bean class="com.springcore.autowire.xml.Address"  name="xyz">
+        <property name="city" value="Hyderabad"/>
+        <property name="state" value="Telangana"/>
+    </bean>
+
+    <bean class="com.springcore.autowire.xml.Company" p:name="amazon" name="comp"/>
+
+
+            <bean class="com.springcore.autowire.xml.Employee" name="employee"
+                  p:name="vivek" autowire="constructor"/>
+<!--Both byName and byType uses setter methods to inject the beans..whereas by constructor uses constructor-->
+<!--    for injection here we need to have constructor with address param...inside employee class-->
+
+
+<!--        <bean class="com.springcore.autowire.xml.Employee" name="employee"-->
+<!--              p:name="vivek" autowire="byType"/>-->
+
+<!--    <bean class="com.springcore.autowire.xml.Employee" name="employee"-->
+<!--          p:name="vivek" autowire="byName"/>-->
+<!--    byName autowire will search for the bean with the name "address" to inject into variable address-->
+<!--    because it takes the variable name declared in class Employee..only the object types are autowired-->
+
+
+
+</beans>
